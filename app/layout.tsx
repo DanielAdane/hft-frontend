@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar";
 
 const lexend = Lexend({ subsets: ["latin"] });
 
@@ -17,7 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={lexend.className}>{children}</body>
+      <body className={`${lexend.className} flex flex-col h-screen`}>
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <footer>footer</footer>
+      </body>
     </html>
   );
 }
